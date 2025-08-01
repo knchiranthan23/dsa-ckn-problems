@@ -151,3 +151,227 @@ using namespace std;
         }
         return -1;
     }*/
+
+/*BS on Answers*/
+/*Q1-Square root of n th number usig binary search*/
+// int main() {
+// int n;
+// cin>>n;
+// int low=0,high=n;
+// int ans=1;
+// while(low<=high)
+// {
+//     int mid=(low+high)/2;
+//     if(mid*mid<=n)
+//     {
+//       ans=mid;
+//       low=mid+1;
+//     }
+//     else
+//     {
+//         high=mid-1;
+//     }
+// }
+// cout<<ans<<endl;
+// return 0;
+// }
+
+/*Q2-Finding nth root of m*/
+/*  int funN(int mid,int n)
+  {
+      long long ans=1;
+      while(n>0)
+      {
+          if(n%2==1)
+          {
+              ans=ans*mid;
+              n=n-1;
+          }
+          else
+          {
+              mid=mid*mid;
+              n=n/2;
+          }
+      }
+      return ans;
+  }
+    int nthRoot(int n, int m) {
+        // Code here
+        int low=1,high=m;
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            if(funN(mid,n)==m)
+            {
+                return mid;
+            }
+            else if(funN(mid,n)<m)
+            {
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return -1;
+    }*/
+
+/*Koko Eating bananas(875) BruteForce Approach*/
+/*    int FindMaxele(const vector<int>& arr) {
+        int maxy = INT_MIN;
+        for (int val : arr) {
+            maxy = max(maxy, val);
+        }
+        return maxy;
+    }
+
+    // Calculate how many hours are required at eating speed `k`
+    long long CalculateK(const vector<int>& arr, int k) {
+        long long total_time = 0;
+        for (int bananas : arr) {
+            total_time += ceil((double)bananas / k);
+        }
+        return total_time;
+    }
+
+    // Brute-force approach
+    int minEatingSpeed(vector<int>& piles, int h) {
+        int maxele = FindMaxele(piles);
+        for (int k = 1; k <= maxele; k++) {
+            long long ReqTime = CalculateK(piles, k);
+            if (ReqTime <= h) {
+                return k;
+            }
+        }
+        return -1; // should never hit this if h >= piles.size()
+    }*/
+/*Optimal Approach using Binary Search*/
+    
+    // int FindMaxele(const vector<int>& arr) {
+    //     int maxy = INT_MIN;
+    //     for (int val : arr) {
+    //         maxy = max(maxy, val);
+    //     }
+    //     return maxy;
+    // }
+
+   
+    // long long CalculateK(const vector<int>& arr, int k) {
+    //     long long total_time = 0;
+    //     for (int bananas : arr) {
+    //         total_time += ceil((double)bananas / k);
+    //     }
+    //     return total_time;
+    // }
+
+   
+    // int minEatingSpeed(vector<int>& piles, int h) {
+    //     int low=1,high=FindMaxele(piles);
+    //     int minK=0;
+    //     while(low<=high)
+    //     {
+    //         int mid=(low+high)/2;
+    //         long long AnsK=CalculateK(piles,mid);
+    //         if(AnsK<=h)
+    //         {
+    //             minK=mid;
+    //             high=mid-1;
+    //         }
+    //         else
+    //         {
+    //             low=mid+1;
+    //         }
+    //     }
+    //     return minK;
+    // }
+
+/*1482. Minimum Number of Days to Make m Bouquets-Brute Force Approach*/
+/*bool funCountDays(vector<int>& arr,int days,int m,int k)
+    {
+        int count=0,NoB=0;
+        for(int i=0;i<arr.size();i++)
+        {
+           if(arr[i]<=days)
+           {
+            count++;
+           }
+           else{
+             NoB+=(count/k);
+             count=0;
+           }
+        }
+        NoB+=(count/k);
+        if(NoB==m)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    int minDays(vector<int>& bloomDay, int m, int k) {
+        int n=bloomDay.size();
+        int miny=INT_MAX,maxy=INT_MIN;
+        for(int i=0;i<n;i++)
+        {
+            miny=min(miny,bloomDay[i]);
+            maxy=max(maxy,bloomDay[i]);
+        }
+        long long v=m*k;
+        if(n<v){return -1;}
+        else
+        {
+            for(int i=miny;i<=maxy;i++)
+            {
+                if(funCountDays(bloomDay,i,m,k)==true)
+                {
+                    return i;
+                }
+            }
+        }
+        return 0;
+    }*/
+
+/*Optimal Approach*/
+/*bool funCountDays(vector<int>& arr,int days,int m,int k)
+    {
+        int count=0,NoB=0;
+        for(int i=0;i<arr.size();i++)
+        {
+           if(arr[i]<=days)
+           {
+            count++;
+           }
+           else{
+             NoB+=(count/k);
+             count=0;
+           }
+        }
+        NoB+=(count/k);
+        return NoB>=m;
+    }
+    int minDays(vector<int>& bloomDay, int m, int k) {
+        int n=bloomDay.size();
+        int miny=INT_MAX,maxy=INT_MIN;
+        for(int i=0;i<n;i++)
+        {
+            miny=min(miny,bloomDay[i]);
+            maxy=max(maxy,bloomDay[i]);
+        }
+        long long v=1LL*m*k;
+        int low=miny,high=maxy,res=-1;
+        if(n<v){return -1;}
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            if(funCountDays(bloomDay,mid,m,k)==true)
+            {
+                res=mid;
+                high=mid-1;
+            }
+            else{
+                low=mid+1;
+            }
+        }
+        return res;
+    }   */
