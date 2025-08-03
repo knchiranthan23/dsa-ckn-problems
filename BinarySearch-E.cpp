@@ -375,3 +375,68 @@ using namespace std;
         }
         return res;
     }   */
+
+/*1283. Find the Smallest Divisor Given a Threshold-BruteForce Approach*/
+//   int CalculateSum(vector<int>&arr,int d)
+//    {
+//       int sum=0;
+//       for(int i=0;i<arr.size();i++)
+//       {
+//         sum+=ceil(double(arr[i])/double(d));
+//       }
+//       return sum;
+//    }
+//     int smallestDivisor(vector<int>& nums, int threshold) {
+//         int n=nums.size();
+//         int maxy=INT_MIN;
+//         for(int i=0;i<n;i++)
+//         {
+//             maxy=max(maxy,nums[i]);
+//         }
+        
+//         for(int i=1;i<=maxy;i++)
+//         {
+//            int sum=CalculateSum(nums,i);
+//             if(sum<=threshold)
+//             {
+//                 return i;
+//             }
+//         }
+//         return -1;
+//     }
+
+
+/*1283. Find the Smallest Divisor Given a Threshold-Optimal Approach(BS)*/
+/* int CalculateSum(vector<int>&arr,int d)
+   {
+      int sum=0;
+      for(int i=0;i<arr.size();i++)
+      {
+        sum+=ceil(double(arr[i])/double(d));
+      }
+      return sum;
+   }
+    int smallestDivisor(vector<int>& nums, int threshold) {
+        int n=nums.size();
+        int maxy=INT_MIN;
+        for(int i=0;i<n;i++)
+        {
+            maxy=max(maxy,nums[i]);
+        }
+        int low=1,high=maxy;
+        int Mindiv=0;
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            int sum=CalculateSum(nums,mid);
+            if(sum<=threshold)
+            {
+                Mindiv=mid;
+                high=mid-1;
+            }
+            else{
+                low=mid+1;
+            }
+        }
+        return Mindiv;
+    }  */
