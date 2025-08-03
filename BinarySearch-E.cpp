@@ -440,3 +440,74 @@ using namespace std;
         }
         return Mindiv;
     }  */
+
+/*1011. Capacity To Ship Packages Within D Days-BruteForce Approach*/
+/*int calculateDays(vector<int>& arr, int w) {
+    int sum = 0, days = 1; 
+    for(int i = 0; i < arr.size(); i++) {
+        if(sum + arr[i] > w) {
+            days++;
+            sum = 0;
+        }
+        sum += arr[i];
+    }
+    return days;
+}
+
+    int shipWithinDays(vector<int>& weights, int days) {
+        int n=weights.size();
+        int sum=0,maxy=INT_MIN;
+        for(int i=0;i<n;i++)
+        {
+            sum+=weights[i];
+            maxy=max(maxy,weights[i]);
+        }
+        for(int i=maxy;i<=sum;i++)
+        {
+            int Mindays=calculateDays(weights,i);
+            if(Mindays<=days)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }*/
+/*1011. Capacity To Ship Packages Within D Days-Optimal Approach*/
+/*int calculateDays(vector<int>& arr, int w) {
+    int sum = 0, days = 1; 
+    for(int i = 0; i < arr.size(); i++) {
+        if(sum + arr[i] > w) {
+            days++;
+            sum = 0;
+        }
+        sum += arr[i];
+    }
+    return days;
+}
+
+    int shipWithinDays(vector<int>& weights, int days) {
+        int n=weights.size();
+        int sum=0,maxy=INT_MIN;
+        for(int i=0;i<n;i++)
+        {
+            sum+=weights[i];
+            maxy=max(maxy,weights[i]);
+        }
+        int low=maxy,high=sum;
+        int MinCapacity;
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            int MinD=calculateDays(weights,mid);
+            if(MinD<=days)
+            {
+                MinCapacity=mid;
+                high=mid-1;
+            }
+            else
+            {
+                low=mid+1;
+            }
+        }
+        return MinCapacity;
+    }*/
