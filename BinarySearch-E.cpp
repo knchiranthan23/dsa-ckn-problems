@@ -547,3 +547,70 @@ using namespace std;
         }
         return high+1+k;
     } */    
+
+/*Aggressive cows-BruteFroce Approach*/
+    // bool countCows(vector<int> arr,int dist,int cows)
+    // {
+    //     int last=arr[0],cowcount=1;
+    //     for(int i=1;i<arr.size();i++)
+    //     {
+    //         if((arr[i]-last)>=dist)
+    //         {
+    //             cowcount++;
+    //             last=arr[i];
+    //         }
+    //     }
+    //     if(cowcount>=cows){
+    //         return true;
+    //     }
+    //     else{return false;}
+    // }
+    // int aggressiveCows(vector<int> &stalls, int k) {
+    //    int n=stalls.size();
+    //    int maxy=INT_MIN;
+    //    int miny=INT_MAX;
+    //    for(int i=0;i<n;i++)
+    //    {
+    //      maxy=max(maxy,stalls[i]);
+    //      miny=min(miny,stalls[i]);
+    //    }
+    //    int i;
+    //    for( i=1;i<=(maxy-miny);i++)
+    //    {
+    //       if(countCows(stalls,i,k)==true)
+    //       {
+    //         continue;
+    //       }
+    //       else
+    //       {
+    //         break;
+    //       }
+    //    }  
+    //    return i-1;  
+    // }
+
+/*Aggressive cows-Optimal Approach using Binary Search*/
+// int aggressiveCows(vector<int> &stalls, int k) {
+//        int n=stalls.size();
+//        int maxy=INT_MIN;
+//        int miny=INT_MAX;
+//        for(int i=0;i<n;i++)
+//        {
+//          maxy=max(maxy,stalls[i]);
+//          miny=min(miny,stalls[i]);
+//        }
+//        int low=miny,high=maxy;
+//        while(low<=high)
+//        {
+//           int mid=(low+high)/2;
+//           if(countCows(stalls,mid,k)==true)
+//           {
+//             int ans=mid;
+//             low=mid+1;
+//           }
+//           else{
+//             high=mid-1;
+//           }
+//        }
+//        return ans;
+//     }   
