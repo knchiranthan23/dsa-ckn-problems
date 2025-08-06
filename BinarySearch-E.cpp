@@ -511,3 +511,39 @@ using namespace std;
         }
         return MinCapacity;
     }*/
+
+
+/*1539. Kth Missing Positive Number-BruteForce Approach*/
+/* int findKthPositive(vector<int>& arr, int k) {
+        int n=arr.size();
+        for(int i=0;i<n;i++)
+        {
+            if(arr[i]<=k){
+                k++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        return k;
+    }*/
+
+/* 1539. Kth Missing Positive Number-Optimal approach using binary search method*/
+/*    int findKthPositive(vector<int>& arr, int k) {
+        int n=arr.size();
+        int low=0,high=n-1;
+        while(low<=high)
+        {
+            int mid=(low+high)/2;
+            int missingNo=arr[mid]-(mid+1);
+            if(missingNo<k)
+            {
+                low=mid+1;
+            }
+            else{
+                high=mid-1;
+            }
+        }
+        return high+1+k;
+    } */    
