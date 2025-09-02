@@ -123,3 +123,30 @@
       }
       return first.substr(0,i);
     }*/
+
+/*796. Rotate String Approach-1*/
+/*bool rotateString(string s, string goal) {
+        int n=s.size(), m=goal.size();
+        if(n!=m){return false;}
+        for(int ror=1;ror<=n;ror++)
+        {
+           string res(n,' ');
+           for(int i=ror;i<n;i++)
+           {
+             res[i-ror]=s[i];
+           }
+           for(int i=0;i<ror;i++)
+           {
+             res[n-ror+i]=s[i];
+           }
+           if(res==goal)
+           {
+             return true;
+           }
+        }
+        return false;
+    }*/
+   /*Approach-2 optimal solution*/
+/*bool rotateString(string s, string goal) {
+       return  s.size()==goal.size() && (s+s).find(goal)!=-1;
+    }*/
