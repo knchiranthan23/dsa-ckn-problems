@@ -150,3 +150,46 @@
 /*bool rotateString(string s, string goal) {
        return  s.size()==goal.size() && (s+s).find(goal)!=-1;
     }*/
+
+/*242. Valid Anagram bruteForce Approach using sort*/
+/*bool isAnagram(string s, string t) {
+      if(s.size()!=t.size()){return false;}
+       sort(s.begin(),s.end());
+       sort(t.begin(),t.end());
+       if(s==t)
+       {
+         return true;
+       }
+       return false;
+    }*/
+
+/*Better Approach*/
+/*bool isAnagram(string s, string t) {
+      if(s.size()!=t.size()){return false;}
+      unordered_map<char,int>m1,m2;
+      for(int i=0;i<s.size();i++)
+      {
+        m1[s[i]]++;
+      }
+      for(int i=0;i<t.size();i++)
+      {
+        m2[t[i]]++;
+      }
+      return m1==m2;
+    }*/
+
+/*Optimal Appproach*/
+/*bool isAnagram(string s, string t) {
+      if(s.size()!=t.size()){return false;}
+      vector<int>freq(26,0);
+      for(int i=0;i<s.size();i++)
+      {
+        freq[s[i]-'a']++;
+        freq[t[i]-'a']--;
+      }
+      for(int count:freq)
+      {
+        if(count!=0){return false;}
+      }
+      return true;
+    }*/
