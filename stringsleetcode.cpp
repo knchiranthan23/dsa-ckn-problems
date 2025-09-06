@@ -193,3 +193,44 @@
       }
       return true;
     }*/
+  
+/*451. Sort Characters By Frequency Approach 1 using sort function*/
+
+  /*string frequencySort(string s) {
+        string res="";
+        unordered_map<char,int>freq;
+        for(char c:s){
+            freq[c]++;
+        }
+        vector<pair<char,int>>vec(freq.begin(),freq.end());
+
+        sort(vec.begin(),vec.end(),[](auto &a, auto &b) {
+              return a.second > b.second;
+        });
+        for(auto &i:vec)
+        {
+            res.append(i.second,i.first);
+        }
+        return res;
+    */
+
+/*Approach-2 without sort function*/
+/*string frequencySort(string s) {
+        string res="";
+        unordered_map<char,int>freq;
+        for(char c:s){
+            freq[c]++;
+        }
+        vector<vector<char>>bucketdata(s.size()+1);
+        for(auto[ch,fq]:freq){
+            bucketdata[fq].push_back(ch);
+        }
+        for(int i=s.size();i>=1;i--)
+        {
+            for(char ch:bucketdata[i])
+            {
+                res.append(i,ch);
+            }
+        }
+        return res;
+    }*/
