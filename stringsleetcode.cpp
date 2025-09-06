@@ -234,3 +234,25 @@
         }
         return res;
     }*/
+
+/*1614. Maximum Nesting Depth of the Parentheses*/
+/*int maxDepth(string s) {
+     string res="";
+      int count=0,maxcount=0;
+        for(char c:s)
+        { 
+           if(c=='(')
+           {
+             count++; 
+             maxcount=max(count,maxcount);
+           }
+           else if(c==')')
+           {
+              count--;
+           }
+           else{
+             continue;
+           }
+        }
+        return maxcount;   
+    }*/
