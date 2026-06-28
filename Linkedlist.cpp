@@ -169,3 +169,205 @@ int main()
         return head;
     }*/
 
+/*Better solution*/
+/* ListNode* reverseList(ListNode* head) {
+        ListNode* temp=head;
+        ListNode* prev=NULL;
+        while(temp!=NULL)
+        {
+           ListNode* front=temp->next;
+            temp->next=prev;
+            prev=temp;
+            temp=front;
+        }
+        return prev;
+    }*/
+
+/*Leetcode 876 Middle of LL*/
+/*BruteForce Approach*/
+// ListNode* middleNode(ListNode* head) {
+//         ListNode* temp=head;
+//         int count=0;
+//         while(temp!=NULL)
+//         {
+//           count++;
+//           temp=temp->next;
+//         }
+//         temp=head;
+//         int mid=(count)/2+1;
+//         while(temp!=NULL)
+//         {
+//             mid=mid-1;
+//             if(mid==0)
+//             {
+//                 break;
+//             }
+//             temp=temp->next;
+//         }
+//         return temp;
+//     }
+
+/*Optimal Approach*/
+/*ListNode* middleNode(ListNode* head) {
+        ListNode* fast=head;
+        ListNode* slow=head;
+        while(fast!=NULL && fast->next!=NULL)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        return slow;
+    }*/
+
+/*141. Linked List Cycle*/
+//BruteFroce Approach
+/* bool hasCycle(ListNode *head) {
+       unordered_map<ListNode*,int>mpp;
+       ListNode* temp=head;
+       while(temp!=NULL)
+       {
+         if(mpp.find(temp)!=mpp.end())
+         {
+            return true;
+         }
+         mpp[temp]=1;
+         temp=temp->next;
+       } 
+       return false;
+    }*/
+
+//Optimal Approach
+/*bool hasCycle(ListNode *head) {
+        ListNode* fast=head;
+        ListNode* slow=head;
+        while(fast!=NULL && fast->next!=NULL)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+            if(fast==slow) return true;
+        }
+        return false;
+    }*/
+
+/*142. Linked List Cycle II*/
+//Brute Force Approach
+/*ListNode *detectCycle(ListNode *head) {
+      map<ListNode* , int>mpp;
+      ListNode* temp=head;
+      while(temp!=NULL && temp->next!=NULL)
+      {
+         if(mpp.find(temp)!=mpp.end())
+         {
+           return temp;
+         }
+         mpp[temp]=1;
+         temp=temp->next;
+      }   
+      return NULL;
+    }*/
+
+/*Optimal Approach*/
+/*    ListNode *detectCycle(ListNode *head) {
+      map<ListNode* , int>mpp;
+      ListNode* fast=head;
+      ListNode* slow=head;
+      while(fast!=NULL && fast->next!=NULL)
+      {
+        slow=slow->next;
+        fast=fast->next->next;
+        if(slow==fast)
+        {
+            slow=head;
+            while(slow!=fast)
+            {
+                slow=slow->next;
+                fast=fast->next;
+            }
+            return slow;
+        }
+      }   
+      return NULL;
+}*/
+
+/*234. Palindrome Linked List Brute Force Approach*/
+/*bool isPalindrome(ListNode* head) {
+        stack<int>st;
+        ListNode* temp=head;
+        while(temp!=NULL)
+        {
+            st.push(temp->val);
+            temp=temp->next;
+        }
+        temp=head;
+        while(temp!=NULL)
+        {
+            if(temp->val!=st.top())
+            {
+                return false;
+            }
+            temp=temp->next;
+            st.pop();
+        }
+        return true;
+}*/
+
+/*Optimal Approach*/
+/*bool isPalindrome(ListNode* head) {
+        ListNode* slow=head;
+        ListNode* fast=head;
+        if(head==NULL || head->next==NULL) return true;
+        while(fast->next!=NULL && fast->next->next!=NULL)
+        {
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        ListNode* newhead=ReverseLL(slow->next);
+        ListNode* first=head;
+        ListNode* second=newhead;
+        while(second!=NULL)
+        {
+            if(first->val!=second->val)
+            {
+                ReverseLL(newhead);
+                return false;
+            }
+            first=first->next;
+            second=second->next;
+        }
+        ReverseLL(newhead);
+        return true;
+}*/
+
+/*Remove Nth node from End of List*/
+//  ListNode* removeNthFromEnd(ListNode* head, int n) {
+//         ListNode*temp=head;
+//         ListNode*delenod;
+//         int count=0;
+//         while(temp!=NULL)
+//         {
+//             count++;
+//             temp=temp->next;
+//         }
+//         if(count==n)
+//         {
+//            delenod=head->next;
+//            delete head;
+//            return delenod;
+//         }
+//         int newcount=count-n;
+//         temp=head;
+//         while(temp!=NULL && temp->next!=NULL)
+//         {
+//             newcount--;
+//             if(newcount==0)
+//             {
+//                 break;
+//             }
+//             temp=temp->next;
+//         }
+//         delenod=temp->next;
+//         temp->next = temp->next->next;
+//         delete delenod;
+//         return head;
+//     }
+
