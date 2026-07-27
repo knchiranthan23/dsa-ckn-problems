@@ -371,3 +371,40 @@ int main()
 //         return head;
 //     }
 
+/*328. Odd Even Linked List*/
+// !Brute Force Approach
+//  ListNode* oddEvenList(ListNode* head) {
+//         vector<int> arr;
+//         ListNode* temp = head;
+//         int count=0;
+//         while(temp!=NULL)
+//         {
+//             count++;
+//             if(count%2==1)
+//             {
+//                 arr.push_back(temp->val);
+//             }
+//             temp = temp->next;
+//         }
+//         count = 0;
+//         temp = head;
+//         while(temp!=NULL)
+//         {
+//             count++;
+//             if(count%2==0)
+//             {
+//                 arr.push_back(temp->val);
+//             }
+//             temp = temp->next;
+//         }
+//         temp = head;
+//         int i = 0;
+//         while(temp!=NULL)
+//         {
+//             temp->val = arr[i++];
+//             temp = temp->next;
+//         }
+//         return head;
+//     }
+
+//? Optimal Solution
