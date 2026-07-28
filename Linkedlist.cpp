@@ -477,3 +477,70 @@ int main()
     //     smallT->next = largeH->next;
     //     return smallH->next;
     // }
+
+/*143. Reorder List*/
+//! Brute Force Apporach
+//  void reorderList(ListNode* head) {
+//         vector<int>arr;
+//         ListNode* temp = head;
+//         while(temp!=NULL){
+//             arr.push_back(temp->val);
+//             temp = temp->next;
+//         }
+//         int i=0,j=arr.size()-1;
+//         temp = head;
+//         while(temp!=NULL && i<=j)
+//         {
+//             temp->val = arr[i];
+//             i++;
+//             temp = temp->next;
+//             if(temp!=NULL)
+//             {
+//                 temp->val = arr[j];
+//                 j--;
+//                 temp = temp->next;
+//             }
+//             else
+//             {
+//                 break;
+//             }
+//         }
+//         return;
+//     }
+
+//? Optimal Approach
+// ListNode* ReverseLL(ListNode* head)
+//     {
+//        if(head==NULL || head->next==NULL)
+//        {
+//           return head;
+//        }
+//        ListNode* newhead = ReverseLL(head->next);
+//        ListNode* first = head->next;
+//        first->next = head;
+//        head->next = NULL;
+//        return newhead;
+//     }
+//     void reorderList(ListNode* head) {
+//        ListNode* slow = head;
+//        ListNode* fast = head;
+//        while(fast->next!=NULL && fast->next->next!=NULL)
+//        {
+//           slow = slow->next;
+//           fast = fast->next->next;
+//        }
+//        ListNode* first = head;
+//        ListNode* second = ReverseLL(slow->next);
+//        slow->next = NULL;
+       
+//        while(second!=NULL)
+//        {
+//           ListNode* firstNext = first->next;
+//           ListNode* secondNext = second->next;
+//           first->next = second;
+//           second->next = firstNext;
+//           first = firstNext;
+//           second = secondNext;
+//        }
+//        return;
+//     }
