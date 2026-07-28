@@ -422,3 +422,58 @@ int main()
 //         odd->next=evenHead;
 //         return head;
 //     }
+
+/*86. Partition List*/
+//! Brute Force Solution
+// ListNode* partition(ListNode* head, int x) {
+//         ListNode* temp = head;
+//         vector<int>arr;
+//         while(temp!=NULL)
+//         {
+//             if(temp->val<x){
+//                 arr.push_back(temp->val);
+//             }
+//             temp = temp->next;
+//         }
+//         temp = head;
+//         while(temp!=NULL)
+//         {
+//             if(temp->val>=x){
+//                 arr.push_back(temp->val);
+//             }
+//             temp = temp->next;
+//         }
+//         temp = head;
+//         int i=0;
+//         while(temp!=NULL)
+//         {
+//             temp->val = arr[i++];
+//             temp = temp->next;
+//         }
+//         return head;
+//     }
+
+//? Optimal Solution
+//ListNode* partition(ListNode* head, int x) {
+    //     ListNode* temp = head;
+    //     ListNode* smallH = new ListNode(-1);
+    //     ListNode* largeH = new ListNode(-1);
+    //     ListNode* smallT = smallH;
+    //     ListNode* largeT = largeH;
+    //     while(temp!=NULL)
+    //     {
+    //         ListNode* nextnode = temp->next;
+    //         temp->next = NULL;
+    //         if(temp->val<x){
+    //             smallT->next = temp;
+    //             smallT = temp;
+    //         }
+    //         else{
+    //             largeT->next = temp;
+    //             largeT = temp;
+    //         }
+    //         temp = nextnode;
+    //     }
+    //     smallT->next = largeH->next;
+    //     return smallH->next;
+    // }
