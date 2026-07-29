@@ -655,25 +655,25 @@ using namespace std;
 /*gfg-Book Allocation Problem-Optimal Approach using BS Method*/    
     // int findPages(vector<int> &arr, int k) {
     //     // code here
-    //     int n=arr.size();
-    //     if(n<k){return -1;}
-    //     int maxy=INT_MIN,sum=0;
-    //     for(int i=0;i<n;i++)
-    //     {
-    //         maxy=max(maxy,arr[i]);
-    //         sum+=arr[i];
-    //     }
-    //     int low=maxy,high=sum;
-    //     while(low<=high)
-    //     {
-    //         int mid=(low+high)/2;
-    //         if(countStd(arr,mid)>k)
-    //         {
-    //             low=mid+1;
-    //         }
-    //         else{
-    //             high=mid-1;
-    //         }
-    //     }
-    //     return low;
+        // int n=arr.size();
+        // if(n<k){return -1;}
+        // int maxy=INT_MIN,sum=0;
+        // for(int i=0;i<n;i++)
+        // {
+        //     maxy=max(maxy,arr[i]);
+        //     sum+=arr[i];
+        // }
+        // int low=maxy,high=sum;
+        // while(low<=high)
+        // {
+        //     int mid=(low+high)/2;
+        //     if(countStd(arr,mid)>k)
+        //     {
+        //         low=mid+1;
+        //     }
+        //     else{
+        //         high=mid-1;
+        //     }
+        // }
+        // return low;
     // }
