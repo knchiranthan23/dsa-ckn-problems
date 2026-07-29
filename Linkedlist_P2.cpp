@@ -371,3 +371,39 @@
         }
         return head;
 }*/
+
+//? Optimal Approach
+/*Node* segregate(Node* head) {
+        // code here
+        Node* zeroHead = new Node(-1);
+        Node* oneHead = new Node(-1);
+        Node* twoHead = new Node(-1);
+        Node* zeroTail = zeroHead;
+        Node* oneTail = oneHead;
+        Node* twoTail = twoHead;
+        
+        Node* temp = head;
+        while(temp!=NULL)
+        {
+            if(temp->data==0)
+            {
+                zeroTail->next=temp;
+                zeroTail=temp;
+            }
+            else if(temp->data==1)
+            {
+                oneTail->next=temp;
+                oneTail=temp;
+            }
+            else{
+                twoTail->next=temp;
+                twoTail=temp;
+            }
+            temp = temp->next;
+        }
+        zeroTail->next = oneHead->next?oneHead->next:twoHead->next;
+        oneTail->next = twoHead->next;
+        twoTail->next = NULL;
+        
+        return zeroHead->next;
+    }*/
