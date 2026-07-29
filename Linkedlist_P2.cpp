@@ -244,3 +244,130 @@
 
 //         return merge(left,right);
 //     }
+
+/*LC-160. Intersection of Two Linked Lists*/
+//! Brute Force Approach
+// unordered_map<ListNode*,int>mpp;
+//         ListNode* temp = headA;
+//         while(temp!=NULL)
+//         {
+//             mpp[temp]=1;
+//             temp = temp->next;
+//         }
+//         temp = headB;
+//         while(temp!=NULL)
+//         {
+//             if(mpp.find(temp)!=mpp.end())
+//             {
+//                 return temp;
+//             }
+//             temp = temp->next;
+//         }
+//         return NULL;
+
+//todo: Better Approach
+ /*ListNode* intersectionPoint(ListNode* t1 , ListNode* t2, int d)
+    {
+        while(d!=0)
+        {
+            d--;
+            t2 = t2->next;
+        }
+        while(t1!=t2)
+        {
+            t1 = t1->next;
+            t2 = t2->next;
+        }
+        return t1;
+    }
+    ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+        int n1=0;
+        int n2=0;
+        ListNode* temp = headA;
+        while(temp!=NULL)
+        {
+            n1++;
+            temp = temp->next;
+        }
+        temp = headB;
+        while(temp!=NULL)
+        {
+            n2++;
+            temp = temp->next;
+        }
+        if(n1<=n2)
+        {
+           return intersectionPoint(headA,headB,n2-n1);
+        }
+        else{
+            return intersectionPoint(headB,headA,n1-n2);
+        }
+    }*/
+
+//? Optimal Approach
+// ListNode *getIntersectionNode(ListNode *headA, ListNode *headB) {
+//        ListNode* temp1 = headA;
+//        ListNode* temp2 = headB;
+//        if(temp1==NULL || temp2==NULL)
+//        {
+//          return NULL;
+//        }
+//        while(temp1 != temp2)
+//        {
+//           temp1 = temp1->next;
+//           temp2 = temp2->next;
+
+//           if(temp1==temp2){return temp1;}
+
+//           if(temp1==NULL){temp1=headB;}
+//           if(temp2==NULL){temp2=headA;}
+//        }
+//        return temp1;
+//     }
+
+/*GFG Sort a linked list of 0s, 1s and 2s*/
+//! Brute Force approach
+/*    Node* segregate(Node* head) {
+        // code here
+        Node* temp = head;
+        int count0=0,count1=0,count2=0;
+        while(temp!=NULL)
+        {
+            if(temp->data==0)
+            {
+                count0++;
+            }
+            else if(temp->data==1)
+            {
+                count1++;
+            }
+            else
+            {
+                count2++;
+            }
+            temp = temp->next;
+        }
+        temp = head;
+        while(temp!=NULL)
+        {
+            while(count0!=0)
+            {
+                count0--;
+                temp->data = 0;
+                temp = temp->next;
+            }
+            while(count1!=0)
+            {
+                count1--;
+                temp->data = 1;
+                temp = temp->next;
+            }
+            while(count2!=0)
+            {
+                count2--;
+                temp->data = 2;
+                temp = temp->next;
+            }
+        }
+        return head;
+}*/
