@@ -500,3 +500,42 @@
         return dummy->next;
     }*/
 
+//? Optimal Solution
+/*Node* copyRandomList(Node* head) {
+        Node* temp = head;
+        while(temp!=NULL)
+        {
+            Node* copy = new Node(temp->val);
+            copy->next = temp->next;
+            temp->next = copy;
+            temp = copy->next;
+        }
+        temp = head;
+        while(temp!=NULL)
+        {
+            Node* copy = temp->next;
+            if(temp->random!=NULL)
+            {
+                copy->random = temp->random->next;
+            }
+            else
+            {
+                copy->random = NULL;
+            }
+            temp = copy->next;
+        }
+        Node* dummy = new Node(-1);
+        Node* tail = dummy;
+        temp = head;
+        while(temp!=NULL)
+        {
+            Node* copy = temp->next;
+            temp->next = copy->next;
+
+            tail->next = copy;
+            tail = copy;
+
+            temp = temp->next;
+        }
+        return dummy->next;
+    }*/
