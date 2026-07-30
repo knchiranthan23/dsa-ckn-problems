@@ -407,3 +407,57 @@
         
         return zeroHead->next;
     }*/
+
+/*138. Copy List with Random Pointer*/
+//! Brute Force approach 
+/*int copyRandom(Node* head,Node* target)
+    {
+        int indx;
+       while(head!=NULL)
+       {
+          indx = 0;
+          if(head!=target)
+          {
+             head = head->next;
+             indx++;
+          }
+       }
+       return indx;
+    }
+    Node* copyRandomList(Node* head) {
+        Node* dummy = new Node(-1);
+        Node* tail = dummy;
+        Node* temp = head;
+        while(temp!=NULL)
+        {
+           Node* copyNode = new Node(temp->val);
+           tail->next = copyNode;
+           tail = copyNode;
+           temp = temp->next;
+        }
+        tail->next = NULL;
+        temp = head;
+        Node* tempCopy = dummy->next;
+        while(temp!=NULL)
+        {
+            if(temp->random==NULL)
+            {
+                tempCopy->random = NULL;
+            }
+            else
+            {
+                int indx = copyRandom(head,temp->next);
+                Node* tempTarget = dummy->next;
+                while(indx--)
+                {
+                    tempTarget = tempTarget->next;
+                }
+                tempCopy->next = tempTarget;
+            }
+            tempCopy = tempCopy->next;
+            temp = temp->next;
+        }
+        return dummy->next;
+    }*/
+
+//todo : Better Approach
