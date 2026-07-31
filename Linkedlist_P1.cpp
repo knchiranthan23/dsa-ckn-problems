@@ -545,3 +545,43 @@ int main()
 //        return;
 //     }
 
+/*287. Find the Duplicate Number*/
+//! naive approach and solutions
+/*int findDuplicate(vector<int>& nums) {
+
+        unordered_map<int,int>mpp;
+        int len = nums.size();
+        for(int i=0;i<len;i++)
+        {
+            if(mpp.find(nums[i])==mpp.end())
+            {
+                mpp[nums[i]]=1;
+            }
+            else{
+                mpp[nums[i]]++;
+            }
+        }
+        for(auto it : mpp)
+        {
+            if(it.second>1)
+            {
+                return it.first;
+            }
+        }
+        return 0;
+        
+    //      int count;
+    //      for(int i=0;i<len;i++)
+    //      {
+    //         count = 0;
+    //         for(int j=0;j<len;j++)
+    //         {
+    //             if(nums[i]==nums[j] && i!=j)
+    //             {
+    //                 count++;
+    //             }
+    //         }
+    //         if(count>=1){return nums[i];}
+    //      }
+    //      return 0;
+    // }*/
