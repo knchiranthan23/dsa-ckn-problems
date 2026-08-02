@@ -366,3 +366,57 @@
         }
         return dummy->next;
     }*/
+
+//!Hard Problems Singly Linked List(SLL)
+
+/*25. Reverse Nodes in k-Group*/
+//todo: Solution
+/*ListNode* reverseLL(ListNode* head)
+    {
+        if(head==NULL || head->next==NULL)
+        {
+            return head;
+        }
+        ListNode* newHead = reverseLL(head->next);
+        ListNode* front = head->next;
+        front->next = head;
+        head->next=NULL;
+        return newHead;
+    }
+    ListNode* findKNode(ListNode* temp , int k)
+    {
+        k=k-1;
+        while(temp!=NULL && k>0)
+        {
+            k--;
+            temp = temp->next;
+        }
+        return temp;
+    }
+    ListNode* reverseKGroup(ListNode* head, int k) {
+       ListNode* temp = head;
+       ListNode* prevNode = NULL;
+       while(temp!=NULL)
+       {
+          ListNode* kNode = findKNode(temp,k);
+          if(kNode==NULL)
+          {
+             if(prevNode){prevNode->next = temp;}
+             break;
+          }
+          ListNode* nextNode = kNode->next;
+          kNode->next = NULL;
+          reverseLL(temp);
+          if(temp==head)
+          {
+            head = kNode;
+          }
+          else
+          {
+            prevNode->next = kNode;
+          }
+          prevNode = temp;
+          temp = nextNode;
+       }
+       return head;
+}*/
