@@ -420,3 +420,43 @@
        }
        return head;
 }*/
+
+/*LC-61 Rotate List*/
+//! Naive Solution
+// ListNode* rotateRight(ListNode* head, int k) {
+//         if(head==NULL)
+//         {
+//             return NULL;
+//         }
+//         vector<int>arr;
+//         ListNode* temp = head;
+//         int count = 0;
+//         while(temp!=NULL)
+//         {
+//             count++;
+//             temp = temp->next;
+//         }
+//         if(count == 1)
+//         {
+//             return head;
+//         }
+//         k = k%count;
+//         temp = head;
+//         while(temp!=NULL)
+//         {
+//             arr.push_back(temp->val);
+//             temp = temp->next;
+//         }
+//         reverse(arr.begin(),arr.end());
+//         reverse(arr.begin(),arr.begin()+k);
+//         reverse(arr.begin()+k,arr.end());
+
+//         temp = head;
+//         int i=0;
+//         while(temp!=NULL)
+//         {
+//             temp->val=arr[i++];
+//             temp = temp->next;
+//         }
+//         return head;
+//     }
