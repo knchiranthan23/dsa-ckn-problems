@@ -496,3 +496,41 @@
 //         lastNode->next = temp;
 //         return kNode;
 //     }
+
+//? Optimal Approach
+/*ListNode* rotateRight(ListNode* head, int k) {
+        if(head==NULL)
+        {
+            return head;
+        }
+
+        ListNode* temp = head;
+        int count = 0;
+        while(temp!=NULL)
+        {
+            count++;
+            temp = temp->next;
+        }
+        k = k%count;
+        if(k==0 || count == 1 || count == k)
+        {
+            return head;
+        }
+        ListNode* tail = head;
+        while(tail->next!=NULL)
+        {
+            tail = tail->next;
+        }
+        tail->next = head;
+        temp = head;
+        int newcount = count - k;
+        newcount = newcount-1;
+        while(newcount!=0)
+        {
+           newcount--;
+           temp = temp->next;
+        }
+        head = temp->next;
+        temp->next = NULL;
+        return head;
+    }*/
