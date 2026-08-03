@@ -563,3 +563,37 @@
         }
         return headarr;
     }*/
+//? Optimal Approach
+/* Node* MergeList(Node* l1 , Node* l2)
+    {
+        Node* dummy = new Node(-1);
+        Node* temp = dummy;
+        while(l1!=NULL && l2!=NULL)
+        {
+            if(l1->data<l2->data)
+            {
+                temp->bottom = l1;
+                temp = l1;
+                l1 = l1->bottom;
+            }
+            else
+            {
+                temp->bottom = l2;
+                temp = l2;
+                l2 = l2->bottom;
+            }
+            temp->next=NULL;
+        }
+        if(l1){temp->bottom=l1;}
+        else{temp->bottom=l2;}
+        return dummy->bottom;
+    }
+    Node* flatten(Node* head) {
+        // code here
+        if(head==NULL || head->next==NULL)
+        {
+            return head;
+        }
+        Node* mergeNode = flatten(head->next);
+        return MergeList(head,mergeNode);
+}*/
