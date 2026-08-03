@@ -460,3 +460,39 @@
 //         }
 //         return head;
 //     }
+
+//todo : Better Approach
+// ListNode* rotateRight(ListNode* head, int k) {
+//         if(head==NULL)
+//         {
+//             return head;
+//         }
+
+//         ListNode* temp = head;
+//         int count = 0;
+//         while(temp!=NULL)
+//         {
+//             count++;
+//             temp = temp->next;
+//         }
+//         k = k%count;
+//         if(k==0 || count == 1 || count == k)
+//         {
+//             return head;
+//         }
+//         temp = head;
+//         ListNode* lastNode = reverseLL(temp);
+//         ListNode* kNode = lastNode;
+//         k=k-1;
+//         while(k!=0)
+//         {
+//             k--;
+//             kNode = kNode->next;
+//         }
+//         ListNode* nextNode = kNode->next;
+//         kNode->next = NULL;
+//         reverseLL(lastNode);
+//         reverseLL(nextNode);
+//         lastNode->next = temp;
+//         return kNode;
+//     }
