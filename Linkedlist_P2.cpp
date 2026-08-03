@@ -534,3 +534,32 @@
         temp->next = NULL;
         return head;
     }*/
+
+/*GFG-Flatten LinkedList*/
+//! Naive Approach
+/*Node* flatten(Node* head) {
+        // code here
+        vector<int>arr;
+        Node* headTemp = head;
+        while(headTemp!=NULL)
+        {
+            Node* bottomTemp = headTemp;
+            while(bottomTemp!=NULL)
+            {
+                arr.push_back(bottomTemp->data);
+                bottomTemp = bottomTemp->bottom;
+            }
+            headTemp = headTemp->next;
+        }
+        sort(arr.begin(),arr.end());
+        int n = arr.size();
+        Node* headarr = new Node(arr[0]);
+        Node* temp = headarr;
+        for(int i=1;i<n;i++)
+        {
+            Node* nodeTemp = new Node(arr[i]);
+            temp->bottom = nodeTemp;
+            temp = temp->bottom;
+        }
+        return headarr;
+    }*/
