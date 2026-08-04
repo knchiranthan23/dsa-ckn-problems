@@ -641,3 +641,31 @@ int main()
         }
         return head;
 }*/
+
+//?Optimal Solution
+/*ListNode* reverseBetween(ListNode* head, int left, int right) {
+        if(head==NULL || head->next==NULL)
+        {
+            return head;
+        }
+        ListNode* dummy = new ListNode(-1);
+        dummy->next = head;
+        ListNode* prevLeft = dummy;
+        for(int i=1;i<left;i++)
+        {
+            prevLeft = prevLeft->next;
+        }
+        ListNode* curr = prevLeft->next;
+        ListNode* leftnode = curr;
+        ListNode* prevcurr = NULL;
+        for(int i=0;i<right-left+1;i++)
+        {
+            ListNode* front = curr->next;
+            curr->next = prevcurr;
+            prevcurr = curr;
+            curr = front;
+        }
+        prevLeft->next = prevcurr;
+        leftnode->next = curr;
+        return dummy->next;
+}*/
