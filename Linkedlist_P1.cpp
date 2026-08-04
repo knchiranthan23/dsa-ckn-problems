@@ -607,3 +607,37 @@ int main()
 
 //     return slow;
 //   }
+
+/*LC-92 Reverse Linked List II*/
+//!Brute Force solution
+/*ListNode* reverseBetween(ListNode* head, int left, int right) {
+        if(head==NULL || head->next==NULL)
+        {
+            return head;
+        }
+        stack<int>st;
+        ListNode* temp = head;
+        int count = 0;
+        while(temp!=NULL)
+        {
+            count++;
+            if(count>=left && count<=right)
+            {
+                st.push(temp->val);
+            }
+            temp = temp->next;
+        }
+        temp = head;
+        count = 0;
+        while(temp!=NULL)
+        {
+            count++;
+            if(count>=left && count<=right)
+            {
+                temp->val=st.top();
+                st.pop();
+            }
+            temp = temp->next;
+        }
+        return head;
+}*/
