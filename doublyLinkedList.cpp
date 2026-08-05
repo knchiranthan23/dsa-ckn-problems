@@ -48,3 +48,30 @@
 //     Node* head = convert2D(arr);
 //     print(head);
 // }
+
+/*GFG Delete all occurrences in a doubly linked lis*/
+//? Optimal Approach
+/*Node* deleteAllOccurOfX(Node* head, int x) {
+
+        // code here
+        Node* temp = head;
+        while(temp!=NULL)
+        {
+            if(temp->data==x)
+            {
+               if(temp==head)
+               {
+                   head = head->next;
+               }
+               Node* prevTemp = temp->prev;
+               Node* nextTemp = temp->next;
+               if(prevTemp){prevTemp->next = nextTemp;}
+               if(nextTemp){nextTemp->prev = prevTemp;}
+            }
+            else
+            {
+               temp = temp->next; 
+            }
+        }
+        return head;
+    }*/
