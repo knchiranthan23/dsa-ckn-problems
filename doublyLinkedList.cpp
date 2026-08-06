@@ -159,3 +159,30 @@
         }
         return headRef;
 }*/
+//?Optimal Approach
+/*Node* removeDuplicates(Node* headRef) {
+        // code here
+        if(headRef==NULL || headRef->next == NULL)
+        {
+            return headRef;
+        }
+        Node* curr = headRef;
+        while(curr!=NULL)
+        {
+            Node* dup = curr;
+            Node* prevcurr = curr->prev;
+            if(prevcurr!=NULL && curr->data == prevcurr->data)
+            {
+                Node* nextcurr = curr->next;
+                if(nextcurr) nextcurr->prev = prevcurr;
+                prevcurr->next = nextcurr;
+                delete dup;
+                curr = nextcurr;
+            }
+            else
+            {
+                curr = curr->next;
+            }
+        }
+        return headRef;
+}*/
