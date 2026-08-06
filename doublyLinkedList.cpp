@@ -132,3 +132,30 @@
         }
         return ans;
 }*/
+
+/*Remove duplicates from a sorted DLL*/
+//!Brute Force approach
+/*Node* removeDuplicates(Node* headRef) {
+        // code here
+        Node* curr = headRef;
+        unordered_set<int>st;
+        while(curr!=NULL)
+        {
+            Node* dup = curr;
+            if(st.find(curr->data)!=st.end())
+            {
+                Node* nextcurr = curr->next;
+                Node* prevcurr = curr->prev;
+                if(prevcurr) prevcurr->next = nextcurr;
+                if(nextcurr) nextcurr->prev = prevcurr;
+                delete dup;
+                curr = nextcurr;
+            }
+            else
+            {
+                st.insert(curr->data);
+                curr = curr->next;
+            }
+        }
+        return headRef;
+}*/
