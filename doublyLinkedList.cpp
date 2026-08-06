@@ -100,3 +100,35 @@
         }
         return ans;
 }*/
+
+//? Optimal Approach
+/*vector<vector<int>> givenSumPairs(Node* head, int target) {
+        // code here
+        vector<vector<int>>ans;
+        vector<int>ansPair;
+        Node* front = head;
+        while(head->next!=NULL)
+        {
+            head = head->next;
+        }
+        Node* last = head;
+        while(front!=last && front->prev!=last)
+        {
+            if((front->data+last->data)==target)
+            {
+                ansPair = {front->data,last->data};
+                ans.push_back(ansPair);
+                front = front->next;
+                last = last->prev;
+            }
+            else if((front->data+last->data)<target)
+            {
+                front = front->next;
+            }
+            else
+            {
+                last = last->prev;
+            }
+        }
+        return ans;
+}*/
