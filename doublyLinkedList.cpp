@@ -75,3 +75,28 @@
         }
         return head;
     }*/
+
+/*GFG-Pair Sum in Doubly Linked List*/
+//!Brute Force Approach
+/*vector<vector<int>> givenSumPairs(Node* head, int target) {
+        // code here
+        vector<vector<int>>ans;
+        vector<int>ansPair;
+        Node* temp = head;
+        while(temp!=NULL)
+        {
+            Node* tempnext = temp->next;
+            while(tempnext!=NULL)
+            {
+                if((temp->data+tempnext->data)==target)
+                {
+                    ansPair = {temp->data,tempnext->data};
+                    ans.push_back(ansPair);
+                    break;
+                }
+                tempnext = tempnext->next;
+            }
+            temp = temp->next;
+        }
+        return ans;
+}*/
