@@ -597,3 +597,33 @@
         Node* mergeNode = flatten(head->next);
         return MergeList(head,mergeNode);
 }*/
+
+/*LC-23 Merge k Sorted Lists*/
+//!Brute Force Method
+/*ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if(lists.size()==0)
+        {
+            return NULL;
+        }
+        vector<int>arr;
+        for(int i=0;i<lists.size();i++)
+        {
+            ListNode* temp = lists[i];
+            while(temp!=NULL)
+            {
+                arr.push_back(temp->val);
+                temp = temp->next;
+            }
+        }
+        if(arr.size()==0){return NULL;}
+        sort(arr.begin(),arr.end());
+        ListNode* head = new ListNode(arr[0]);
+        ListNode* mover = head;
+        for(int i=1;i<arr.size();i++)
+        {
+            ListNode* temp = new ListNode(arr[i]);
+            mover->next = temp;
+            mover = temp;
+        }
+        return head;
+}*/
