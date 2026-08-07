@@ -627,3 +627,41 @@
         }
         return head;
 }*/
+
+// todo:Better Approach
+/* ListNode* MergeList(ListNode* t1, ListNode* t2)
+    {
+        ListNode* dummy = new ListNode(-1);
+        ListNode* tail = dummy;
+        while(t1!=NULL && t2!=NULL)
+        {
+            if(t1->val<=t2->val)
+            {
+                tail->next = t1;
+                tail=t1;
+                t1=t1->next;
+            }
+            else
+            {
+                tail->next = t2;
+                tail=t2;
+                t2=t2->next; 
+            }
+        }
+        if(t1){tail->next = t1;}
+        else{tail->next = t2;}
+        return dummy->next;
+    }
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if(lists.size()==0)
+        {
+            return NULL;
+        }
+        if(lists.size()==1){return lists[0];}
+        ListNode* sortedHead = MergeList(lists[0],lists[1]);
+        for(int i=2;i<lists.size();i++)
+        {
+            sortedHead = MergeList(sortedHead,lists[i]);
+        }
+        return sortedHead;
+}*/
