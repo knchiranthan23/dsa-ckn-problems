@@ -665,3 +665,48 @@
         }
         return sortedHead;
 }*/
+
+//? Optimal approach
+/*ListNode* MergeList(ListNode* t1, ListNode* t2)
+    {
+        ListNode* dummy = new ListNode(-1);
+        ListNode* tail = dummy;
+        while(t1!=NULL && t2!=NULL)
+        {
+            if(t1->val<=t2->val)
+            {
+                tail->next = t1;
+                tail=t1;
+                t1=t1->next;
+            }
+            else
+            {
+                tail->next = t2;
+                tail=t2;
+                t2=t2->next; 
+            }
+        }
+        if(t1){tail->next = t1;}
+        else{tail->next = t2;}
+        return dummy->next;
+    }
+    ListNode* SortLists(vector<ListNode*>& lists ,int low, int high)
+    {
+        if(low==high)
+        {
+            return lists[low];
+        }
+        int mid = (low+high)/2;
+        ListNode* left = SortLists(lists,low,mid);
+        ListNode* right = SortLists(lists,mid+1,high);
+
+        return MergeList(left,right);
+    }
+    ListNode* mergeKLists(vector<ListNode*>& lists) {
+        if(lists.size()==0)
+        {
+            return NULL;
+        }
+        ListNode* sortHead = SortLists(lists,0,lists.size()-1);
+        return sortHead;
+}*/
